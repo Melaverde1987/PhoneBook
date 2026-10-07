@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "PhoneBook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://melaverde1987.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://melaverde1987.github.io/PhoneBook/",
   "dependencies": {
     "@redux-devtools/extension": "^3.2.6",
     "@reduxjs/toolkit": "^1.9.7",

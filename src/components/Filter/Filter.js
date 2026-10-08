@@ -10,7 +10,7 @@ export const Filter = () => {
 
   return (
     <FilterContainer>
-      <p>Find contacts by name</p>
+      <h2>Find contacts by name</h2>
       <Formik
         initialValues={{
           search: '',

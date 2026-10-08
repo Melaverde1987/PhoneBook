@@ -22,14 +22,13 @@ export default function Tasks() {
         <title>Your contacts</title>
       </Helmet>
       {isLoading && <div>'Request in progress...'</div>}
-      <div className="card">
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
+      <main>
+        <h1>My contacts</h1>
         <Filter />
         {isLoading && !error && <b>Request in progress...</b>}
         <ContactList />
-      </div>
+        <ContactForm />
+      </main>
     </>
   );
 }

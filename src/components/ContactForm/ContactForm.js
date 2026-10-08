@@ -1,9 +1,11 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
 import { FormContainer } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/api';
 import { getContacts } from 'redux/contacts/selectors';
+import { Button } from 'components/Button/Button';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -25,10 +27,11 @@ export const ContactForm = () => {
     );
 
     if (duplicatedName) {
-      alert(`${newContact.name} is already in contacts.`);
+      toast.error(`${newContact.name} is already in contacts.`);
       return;
     }
     dispatch(addContact({ name: newContact.name, number: newContact.phone }));
+    toast.success('Succesfully added');
   };
 
   return (
@@ -61,9 +64,9 @@ export const ContactForm = () => {
             <ErrorMessage name="phone" />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <Button type="submit" mode="primary">
             Add contact
-          </button>
+          </Button>
         </Form>
       </Formik>
     </FormContainer>

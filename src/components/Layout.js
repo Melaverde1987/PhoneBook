@@ -5,12 +5,12 @@ import { NavBar } from './NavBar/NavBar';
 
 export const Layout = () => {
   return (
-    <div className="wrapper">
+    <>
       <NavBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
       <Toaster position="top-right" reverseOrder={false} />
-    </div>
+    </>
   );
 };

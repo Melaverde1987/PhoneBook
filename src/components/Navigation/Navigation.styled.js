@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-export const Menu = styled.div`
+export const Nav = styled.nav`
   display: flex;
   align-items: center;
   gap: 20px;
 
-  p,
-  button {
-    margin-bottom: 0;
+  a {
     font-size: 18px;
     font-weight: 500;
+
+    &.active {
+      color: ${({ theme }) => theme.colors.primary500};
+    }
   }
 `;

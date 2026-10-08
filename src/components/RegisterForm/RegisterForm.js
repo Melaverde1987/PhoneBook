@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { register } from 'redux/auth/operations';
 import { FormContainer } from './RegisterForm.styled';
+import { Button } from 'components/Button/Button';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,20 +17,7 @@ const SignupSchema = Yup.object().shape({
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
-  };
-
-  const handleSubmitTest = values => {
+  const handleSubmit = values => {
     dispatch(
       register({
         name: values.name,
@@ -40,30 +28,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <>
-      <FormContainer>
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <div className="container">
-            <label htmlFor="name">Username</label>
-            <input type="text" name="name" />
-          </div>
-
-          <div className="container">
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" />
-          </div>
-
-          <div className="container">
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" />
-          </div>
-
-          <button type="submit" className="btn btn-primary">
-            Register
-          </button>
-        </form>
-      </FormContainer>
-
+    <FormContainer>
       <Formik
         initialValues={{
           name: '',
@@ -72,19 +37,24 @@ export const RegisterForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          handleSubmitTest(values);
+          handleSubmit(values);
           actions.resetForm();
         }}
       >
         <Form>
           <div className="container">
             <label htmlFor="name">Username</label>
-            <Field type="name" id="name" name="name" />
+            <Field type="name" id="name" name="name" placeholder="Username" />
             <ErrorMessage name="name" />
           </div>
           <div className="container">
             <label htmlFor="email">Email</label>
-            <Field type="email" id="email" name="email" />
+            <Field
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@domain.com"
+            />
             <ErrorMessage name="email" />
           </div>
           <div className="container">
@@ -93,11 +63,11 @@ export const RegisterForm = () => {
             <ErrorMessage name="password" />
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Register Test
-          </button>
+          <Button type="submit" mode="primary">
+            Register
+          </Button>
         </Form>
       </Formik>
-    </>
+    </FormContainer>
   );
 };

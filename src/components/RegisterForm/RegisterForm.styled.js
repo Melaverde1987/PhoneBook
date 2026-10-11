@@ -1,8 +1,29 @@
+import { ErrorMessage } from 'formik';
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   background: ${({ theme }) => theme.colors.white};
   padding: 20px;
   border-radius: 5px;
-  margin-bottom: 30px;
+  margin-block: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    max-width: 50%;
+  }
+`;
+
+export const FieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+`;
+
+export const Error = styled(ErrorMessage).attrs({
+  component: 'p',
+})`
+  color: red;
+  font-size: 14px;
+  margin-top: 0.5em;
 `;

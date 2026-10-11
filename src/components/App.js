@@ -22,7 +22,19 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <div
+      style={{
+        position: 'fixed',
+        zIndex: 2,
+        left: 0,
+        right: 0,
+        marginInline: 'auto',
+        width: 'fit-content',
+        fontWeight: 600,
+      }}
+    >
+      Refreshing user...
+    </div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { register } from 'redux/auth/operations';
-import { FormContainer } from './RegisterForm.styled';
+import { FormContainer, FieldContainer, Error } from './RegisterForm.styled';
 import { Button } from 'components/Button/Button';
 
 const SignupSchema = Yup.object().shape({
@@ -42,12 +42,12 @@ export const RegisterForm = () => {
         }}
       >
         <Form>
-          <div className="container">
+          <FieldContainer>
             <label htmlFor="name">Username</label>
             <Field type="name" id="name" name="name" placeholder="Username" />
-            <ErrorMessage name="name" />
-          </div>
-          <div className="container">
+            <Error name="name" />
+          </FieldContainer>
+          <FieldContainer>
             <label htmlFor="email">Email</label>
             <Field
               type="email"
@@ -55,15 +55,15 @@ export const RegisterForm = () => {
               name="email"
               placeholder="example@domain.com"
             />
-            <ErrorMessage name="email" />
-          </div>
-          <div className="container">
+            <Error name="email" />
+          </FieldContainer>
+          <FieldContainer>
             <label htmlFor="password">Password</label>
             <Field type="password" id="password" name="password" />
-            <ErrorMessage name="password" />
-          </div>
+            <Error name="password" />
+          </FieldContainer>
 
-          <Button type="submit" mode="primary">
+          <Button type="submit" mode="primary" style={{ marginTop: '12px' }}>
             Register
           </Button>
         </Form>

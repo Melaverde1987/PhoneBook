@@ -1,5 +1,10 @@
 import { Formik, Field, Form } from 'formik';
-import { FilterContainer } from './Filter.styled';
+import { CiSearch } from 'react-icons/ci';
+import {
+  FilterContainer,
+  FieldContainer,
+  SearchControl,
+} from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from 'redux/contacts/filterSlice';
 
@@ -10,7 +15,7 @@ export const Filter = () => {
 
   return (
     <FilterContainer>
-      <h2>Find contacts by name</h2>
+      <h2>All contacts</h2>
       <Formik
         initialValues={{
           search: '',
@@ -20,16 +25,20 @@ export const Filter = () => {
         }}
       >
         <Form>
-          <div className="container">
-            <label htmlFor="search">Name</label>
-            <Field
-              id="search"
-              name="search"
-              placeholder="John Doe"
-              value={filterValue}
-              onChange={handleChange}
-            />
-          </div>
+          <FieldContainer>
+            <label htmlFor="search">Find contacts by name</label>
+            <SearchControl>
+              <Field
+                type="search"
+                id="search"
+                name="search"
+                placeholder="John Doe"
+                value={filterValue}
+                onChange={handleChange}
+              />
+              <CiSearch />
+            </SearchControl>
+          </FieldContainer>
         </Form>
       </Formik>
     </FilterContainer>

@@ -8,7 +8,11 @@ export const Menu = styled.div`
   p,
   button {
     margin-bottom: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      font-size: 18px;
+    }
   }
 `;

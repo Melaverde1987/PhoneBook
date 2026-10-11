@@ -2,16 +2,46 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    html {
+        scroll-behavior: smooth;
+        font-size: 62.5%;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: ${({ theme }) => theme.colors.gray800};
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: ${({ theme }) => theme.colors.primary600};
+        }
+
+        /* for Firefox */
+        @-moz-document url-prefix() {
+            scrollbar-width: thin;
+            scrollbar-color: ${({ theme }) => theme.colors.primary600} ${({ theme }) => theme.colors.primary600};
+        }
+    }
+
+    ::selection {
+        background: ${({ theme }) => theme.colors.primary500};
+        color: ${({ theme }) => theme.colors.white};
+    }
 
     body {
         font-family: ${({ theme }) => theme.fonts.primary};
-        font-size: 16px;
-        line-height: 1.2;
+        font-size: 1.6rem;
+        line-height: 1.4;
         font-weight: 400;
         color: ${({ theme }) => theme.colors.text};
         background-color: ${({ theme }) => theme.colors.white};
         margin: 0;
+        overflow-x: hidden;
+        width: 100%;
+        height: auto;
     }
 
     #root {
@@ -22,10 +52,15 @@ export const GlobalStyle = createGlobalStyle`
      main {
         width: 100%;
         max-width: 960px;
+        padding-inline: 20px;
         margin-left: auto;
         margin-right: auto;
-        min-height: 87vh;
+        min-height: 80vh;
         padding-block: ${({ theme }) => theme.spacing.md};
+
+        @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+            min-height: 87vh;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -33,12 +68,20 @@ export const GlobalStyle = createGlobalStyle`
         margin-bottom: 0.5em;
     }
 
-    h1 {
-        font-size: 48px;
+    h1, .h1 {
+        font-size: 40px;
         text-align: center;
         background: linear-gradient(45deg, ${({ theme }) => theme.colors.primary500}, ${({ theme }) => theme.colors.text});
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+            font-size: 48px;
+        }
+    }
+
+    h2 {
+        font-size: 22px;
     }
 
     p {
@@ -88,42 +131,72 @@ export const GlobalStyle = createGlobalStyle`
         border-top: 1px solid ${({ theme }) => theme.colors.border};
     }
 
-  
-
-    input:focus,
-    textarea:focus {
-        outline: 1px solid ${({ theme }) => theme.colors.primary500};
-    }
-
     label {
-        margin-bottom: 5px;
+        margin-bottom: 3px;
+        margin-left: 3px;
         color: ${({ theme }) => theme.colors.primary500};
         font-weight: 600;
+        position: relative;
+        z-index: 2;
+        font-size: 14px;
     }
 
     input {
-        padding: 5px 10px;
-        border-radius: 5px;
-        border: 1px solid ${({ theme }) => theme.colors.black};
-    }
-    
-
-    .card {
-        max-width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .wrapper {
         width: 100%;
-        max-width: 960px;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 16px;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        color: ${({ theme }) => theme.colors.text};
+        background: ${({ theme }) => theme.colors.gray500};
+        box-shadow:
+            20px 20px 40px ${({ theme }) => theme.colors.gray600},
+            -20px -20px 60px ${({ theme }) => theme.colors.white};
+
+        transition: background-color 0.3s, box-shadow 0.3s;
+
+        &:focus {
+            outline: 1px solid ${({ theme }) => theme.colors.primary700};
+            outline-offset: 2px;
+            background: ${({ theme }) => theme.colors.gray600};
+            box-shadow:
+                inset 20px 20px 60px ${({ theme }) => theme.colors.gray700},
+                inset -20px -20px 60px ${({ theme }) => theme.colors.white};
+        }
+
+        &:is(:autofill, :-webkit-autofill) {
+            -webkit-text-fill-color: ${({ theme }) => theme.colors.text};
+            caret-color: ${({ theme }) => theme.colors.text};
+            box-shadow: 20px 20px 40px ${({ theme }) => theme.colors.gray600},
+                -20px -20px 60px ${({ theme }) => theme.colors.white},
+                inset 0 0 0 1000px ${({ theme }) => theme.colors.gray500};
+        }
+
+        &:is(:autofill, :-webkit-autofill):focus {
+            box-shadow: inset 20px 20px 60px ${({ theme }) => theme.colors.gray700},
+            inset -20px -20px 60px ${({ theme }) => theme.colors.white},
+            inset 0 0 0 1000px ${({ theme }) => theme.colors.gray600};
+        }
+
+        &::placeholder{
+            color: ${({ theme }) => theme.colors.secondary};
+            opacity: .7;
+        }
     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
+    input[type='search'] {
+        padding-left: 42px;
+
+        & + svg {
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            pointer-events: none;
+            color: ${({ theme }) => theme.colors.secondary};
+            opacity: .7;
+        }
     }
 `;

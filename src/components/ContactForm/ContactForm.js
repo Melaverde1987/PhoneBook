@@ -1,13 +1,13 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
-import { FormContainer } from './ContactForm.styled';
+import { FormContainer, FieldContainer, Error } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/api';
 import { getContacts } from 'redux/contacts/selectors';
 import { Button } from 'components/Button/Button';
 
-const SignupSchema = Yup.object().shape({
+const AddContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
@@ -36,24 +36,25 @@ export const ContactForm = () => {
 
   return (
     <FormContainer>
+      <h2>Add new contact</h2>
       <Formik
         initialValues={{
           name: '',
           phone: '',
         }}
-        validationSchema={SignupSchema}
+        validationSchema={AddContactSchema}
         onSubmit={(values, actions) => {
           handleSubmit(values, contactNameTest);
           actions.resetForm();
         }}
       >
         <Form>
-          <div className="container">
+          <FieldContainer>
             <label htmlFor="name">Name</label>
             <Field id="name" name="name" placeholder="Jane" />
-            <ErrorMessage name="name" />
-          </div>
-          <div className="container">
+            <Error name="name" />
+          </FieldContainer>
+          <FieldContainer>
             <label htmlFor="phone">Phone</label>
             <Field
               type="tel"
@@ -61,11 +62,11 @@ export const ContactForm = () => {
               name="phone"
               placeholder="459-12-56XXX"
             />
-            <ErrorMessage name="phone" />
-          </div>
+            <Error name="phone" />
+          </FieldContainer>
 
-          <Button type="submit" mode="primary">
-            Add contact
+          <Button type="submit" mode="primary" style={{ marginTop: '12px' }}>
+            add contact
           </Button>
         </Form>
       </Formik>

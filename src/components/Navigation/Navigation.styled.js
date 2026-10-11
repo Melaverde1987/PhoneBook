@@ -6,8 +6,12 @@ export const Nav = styled.nav`
   gap: 20px;
 
   a {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      font-size: 18px;
+    }
 
     &.active {
       color: ${({ theme }) => theme.colors.primary500};

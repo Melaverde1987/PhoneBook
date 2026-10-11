@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 export const FilterContainer = styled.div`
-  background: ${({ theme }) => theme.colors.white};
-  padding: 20px;
-  border-radius: ${({ theme }) => theme.radii.sm};
-  margin-bottom: 30px;
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 36px;
+`;
+
+export const FieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+`;
+
+export const SearchControl = styled.div`
+  position: relative;
 `;

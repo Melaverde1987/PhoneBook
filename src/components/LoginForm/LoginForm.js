@@ -1,40 +1,62 @@
 import { useDispatch } from 'react-redux';
+import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
 import { logIn } from 'redux/auth/operations';
-import { FormContainer } from './LoginForm.styled';
 import { Button } from 'components/Button/Button';
+import { FormContainer, FieldContainer, Error } from './LoginForm.styled';
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Required'),
+});
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+  const handleSubmit = values => {
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email: values.email,
+        password: values.password,
       })
     );
-    form.reset();
   };
 
   return (
     <FormContainer>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <div className="container">
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" />
-        </div>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={LoginSchema}
+        onSubmit={(values, actions) => {
+          handleSubmit(values);
+          actions.resetForm();
+        }}
+      >
+        <Form>
+          <FieldContainer>
+            <label htmlFor="email">Email</label>
+            <Field
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@domain.com"
+            />
+            <Error name="email" />
+          </FieldContainer>
 
-        <div className="container">
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
-        </div>
+          <FieldContainer>
+            <label htmlFor="password">Password</label>
+            <Field type="password" id="password" name="password" />
+            <Error name="password" />
+          </FieldContainer>
 
-        <Button type="submit" mode="primary">
-          Log In
-        </Button>
-      </form>
+          <Button type="submit" mode="primary" style={{ marginTop: '12px' }}>
+            Log In
+          </Button>
+        </Form>
+      </Formik>
     </FormContainer>
   );
 };

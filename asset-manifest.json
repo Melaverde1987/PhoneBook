@@ -1,25 +1,32 @@
 {
   "files": {
-    "main.css": "/PhoneBook/static/css/main.7cda0caf.css",
-    "main.js": "/PhoneBook/static/js/main.fd638135.js",
-    "static/js/266.50f46320.chunk.js": "/PhoneBook/static/js/266.50f46320.chunk.js",
-    "static/js/854.52c723b1.chunk.js": "/PhoneBook/static/js/854.52c723b1.chunk.js",
-    "static/js/503.0b9a83cb.chunk.js": "/PhoneBook/static/js/503.0b9a83cb.chunk.js",
-    "static/js/10.20714886.chunk.js": "/PhoneBook/static/js/10.20714886.chunk.js",
-    "static/js/270.4e99581d.chunk.js": "/PhoneBook/static/js/270.4e99581d.chunk.js",
-    "static/js/32.d0da3cf6.chunk.js": "/PhoneBook/static/js/32.d0da3cf6.chunk.js",
+    "main.css": "/PhoneBook/static/css/main.9dcdf0be.css",
+    "main.js": "/PhoneBook/static/js/main.820ce173.js",
+    "static/js/266.e1fcfc51.chunk.js": "/PhoneBook/static/js/266.e1fcfc51.chunk.js",
+    "static/js/854.e831d4d1.chunk.js": "/PhoneBook/static/js/854.e831d4d1.chunk.js",
+    "static/js/503.09f2d673.chunk.js": "/PhoneBook/static/js/503.09f2d673.chunk.js",
+    "static/js/68.a8198724.chunk.js": "/PhoneBook/static/js/68.a8198724.chunk.js",
+    "static/js/270.c7cf2886.chunk.js": "/PhoneBook/static/js/270.c7cf2886.chunk.js",
+    "static/js/306.dad3ba82.chunk.js": "/PhoneBook/static/js/306.dad3ba82.chunk.js",
+    "static/js/960.0252a8e1.chunk.js": "/PhoneBook/static/js/960.0252a8e1.chunk.js",
+    "static/media/montserrat-latin-ext-wght-normal.woff2": "/PhoneBook/static/media/montserrat-latin-ext-wght-normal.c61240454c8883633374.woff2",
+    "static/media/montserrat-latin-wght-normal.woff2": "/PhoneBook/static/media/montserrat-latin-wght-normal.5f4052846f75256f4d95.woff2",
+    "static/media/montserrat-cyrillic-ext-wght-normal.woff2": "/PhoneBook/static/media/montserrat-cyrillic-ext-wght-normal.f12ba8e0d8b3419efb63.woff2",
+    "static/media/montserrat-cyrillic-wght-normal.woff2": "/PhoneBook/static/media/montserrat-cyrillic-wght-normal.9507a36eaca4874a0d97.woff2",
+    "static/media/montserrat-vietnamese-wght-normal.woff2": "/PhoneBook/static/media/montserrat-vietnamese-wght-normal.fb10371c5006262c0e68.woff2",
     "index.html": "/PhoneBook/index.html",
-    "main.7cda0caf.css.map": "/PhoneBook/static/css/main.7cda0caf.css.map",
-    "main.fd638135.js.map": "/PhoneBook/static/js/main.fd638135.js.map",
-    "266.50f46320.chunk.js.map": "/PhoneBook/static/js/266.50f46320.chunk.js.map",
-    "854.52c723b1.chunk.js.map": "/PhoneBook/static/js/854.52c723b1.chunk.js.map",
-    "503.0b9a83cb.chunk.js.map": "/PhoneBook/static/js/503.0b9a83cb.chunk.js.map",
-    "10.20714886.chunk.js.map": "/PhoneBook/static/js/10.20714886.chunk.js.map",
-    "270.4e99581d.chunk.js.map": "/PhoneBook/static/js/270.4e99581d.chunk.js.map",
-    "32.d0da3cf6.chunk.js.map": "/PhoneBook/static/js/32.d0da3cf6.chunk.js.map"
+    "main.9dcdf0be.css.map": "/PhoneBook/static/css/main.9dcdf0be.css.map",
+    "main.820ce173.js.map": "/PhoneBook/static/js/main.820ce173.js.map",
+    "266.e1fcfc51.chunk.js.map": "/PhoneBook/static/js/266.e1fcfc51.chunk.js.map",
+    "854.e831d4d1.chunk.js.map": "/PhoneBook/static/js/854.e831d4d1.chunk.js.map",
+    "503.09f2d673.chunk.js.map": "/PhoneBook/static/js/503.09f2d673.chunk.js.map",
+    "68.a8198724.chunk.js.map": "/PhoneBook/static/js/68.a8198724.chunk.js.map",
+    "270.c7cf2886.chunk.js.map": "/PhoneBook/static/js/270.c7cf2886.chunk.js.map",
+    "306.dad3ba82.chunk.js.map": "/PhoneBook/static/js/306.dad3ba82.chunk.js.map",
+    "960.0252a8e1.chunk.js.map": "/PhoneBook/static/js/960.0252a8e1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7cda0caf.css",
-    "static/js/main.fd638135.js"
+    "static/css/main.9dcdf0be.css",
+    "static/js/main.820ce173.js"
   ]
 }

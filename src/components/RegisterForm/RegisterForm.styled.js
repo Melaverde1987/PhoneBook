@@ -26,4 +26,24 @@ export const Error = styled(ErrorMessage).attrs({
   color: red;
   font-size: 14px;
   margin-top: 0.5em;
+  position: relative;
+  z-index: 2;
+`;
+
+export const InputControl = styled.div`
+  position: relative;
+`;
+
+export const ToggleButton = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 `;

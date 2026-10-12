@@ -14,29 +14,38 @@ export const ContactList = () => {
     toast.success('Succesfully deleted');
   };
 
-  return (
-    <List>
-      {[...visibleContacts]
-        .sort((contactA, contactB) =>
-          contactA.name.localeCompare(contactB.name)
-        )
-        .map(contact => (
-          <ListItem key={contact.id}>
-            <p>
-              <Name>{contact.name}: </Name>
-              <span>{contact.number}</span>
-            </p>
+  console.log('visibleContacts', visibleContacts);
 
-            <Button
-              type="button"
-              id={contact.id}
-              mode="outline"
-              onClick={handleDelete}
-            >
-              Delete
-            </Button>
-          </ListItem>
-        ))}
-    </List>
+  return (
+    <>
+      {visibleContacts.length === 0 && (
+        <strong className="center">
+          No contacts yet. Add your first contact
+        </strong>
+      )}
+      <List>
+        {[...visibleContacts]
+          .sort((contactA, contactB) =>
+            contactA.name.localeCompare(contactB.name)
+          )
+          .map(contact => (
+            <ListItem key={contact.id}>
+              <p>
+                <Name>{contact.name}: </Name>
+                <span>{contact.number}</span>
+              </p>
+
+              <Button
+                type="button"
+                id={contact.id}
+                mode="outline"
+                onClick={handleDelete}
+              >
+                Delete
+              </Button>
+            </ListItem>
+          ))}
+      </List>
+    </>
   );
 };

@@ -1,9 +1,17 @@
+import { useState } from 'react';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from 'redux/auth/operations';
 import { Button } from 'components/Button/Button';
-import { FormContainer, FieldContainer, Error } from './LoginForm.styled';
+import {
+  FormContainer,
+  FieldContainer,
+  Error,
+  ToggleButton,
+  InputControl,
+} from './LoginForm.styled';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -20,6 +28,8 @@ export const LoginForm = () => {
       })
     );
   };
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <FormContainer>
@@ -48,7 +58,25 @@ export const LoginForm = () => {
 
           <FieldContainer>
             <label htmlFor="password">Password</label>
-            <Field type="password" id="password" name="password" />
+            <InputControl>
+              <Field
+                id="password"
+                name="password"
+                type={showPassword ? 'text' : 'password'}
+              />
+              <ToggleButton
+                type="button"
+                onClick={() => setShowPassword(previous => !previous)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                aria-controls="password"
+              >
+                {showPassword ? (
+                  <FiEyeOff FiEye aria-hidden="true" />
+                ) : (
+                  <FiEye aria-hidden="true" />
+                )}
+              </ToggleButton>
+            </InputControl>
             <Error name="password" />
           </FieldContainer>
 

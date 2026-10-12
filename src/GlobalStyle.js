@@ -199,4 +199,9 @@ export const GlobalStyle = createGlobalStyle`
             opacity: .7;
         }
     }
+
+    .center {
+        text-align: center;
+        display: block;
+    }
 `;
